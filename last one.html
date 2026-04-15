@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tamil Nadu Traditional Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        border: 5px solid #ff6f61;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+        text-align: center;
+        color: #ff3d00;
+    }
+
+    .question {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 3px dashed #ffa726;
+        background-color: #fff3e0;
+    }
+
+    .question h3 {
+        margin: 0 0 10px;
+        color: #6a1b9a;
+    }
+
+    label {
+        display: block;
+        margin: 5px 0;
+        cursor: pointer;
+    }
+
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #43a047;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #2e7d32;
+    }
+
+    #result {
+        text-align: center;
+        font-size: 20px;
+        color: #d84315;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌸 Tamil Nadu Traditional Quiz 🌸</h1>
+
+    <form id="quizForm">
+
+        <div class="question">
+            <h3>1. What is the traditional dance of Tamil Nadu?</h3>
+            <label><input type="radio" name="q1" value="0"> Kathak</label>
+            <label><input type="radio" name="q1" value="1"> Bharatanatyam</label>
+            <label><input type="radio" name="q1" value="0"> Odissi</label>
+        </div>
+
+        <div class="question">
+            <h3>2. Which festival is famous for Pongal celebration?</h3>
+            <label><input type="radio" name="q2" value="1"> Harvest Festival</label>
+            <label><input type="radio" name="q2" value="0"> Diwali</label>
+            <label><input type="radio" name="q2" value="0"> Holi</label>
+        </div>
+
+        <div class="question">
+            <h3>3. What is the traditional Tamil Nadu attire for women?</h3>
+            <label><input type="radio" name="q3" value="1"> Saree</label>
+            <label><input type="radio" name="q3" value="0"> Lehenga</label>
+            <label><input type="radio" name="q3" value="0"> Gown</label>
+        </div>
+
+        <div class="question">
+            <h3>4. Which food is a staple breakfast in Tamil Nadu?</h3>
+            <label><input type="radio" name="q4" value="1"> Idli</label>
+            <label><input type="radio" name="q4" value="0"> Pizza</label>
+            <label><input type="radio" name="q4" value="0"> Burger</label>
+        </div>
+
+        <div class="question">
+            <h3>5. What is the traditional martial art of Tamil Nadu?</h3>
+            <label><input type="radio" name="q5" value="1"> Silambam</label>
+            <label><input type="radio" name="q5" value="0"> Karate</label>
+            <label><input type="radio" name="q5" value="0"> Kung Fu</label>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Submit</button>
+
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function calculateScore() {
+    let score = 0;
+    let total = 5;
+
+    let form = document.forms["quizForm"];
+
+    for (let i = 1; i <= total; i++) {
+        let q = form["q" + i];
+        for (let j = 0; j < q.length; j++) {
+            if (q[j].checked) {
+                score += parseInt(q[j].value);
+            }
+        }
+    }
+
+    document.getElementById("result").innerHTML = 
+        "🎉 Your Score: " + score + " / " + total;
+}
+</script>
+
+</body>
+</html>
