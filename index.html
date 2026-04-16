@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tamil Nadu Traditional Quiz</title>
+
+<!-- ✅ PWA SETTINGS -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff6f61">
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -69,6 +75,7 @@
     }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -136,6 +143,15 @@ function calculateScore() {
 
     document.getElementById("result").innerHTML = 
         "🎉 Your Score: " + score + " / " + total;
+}
+</script>
+
+<!-- ✅ SERVICE WORKER -->
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.log(err));
 }
 </script>
 
